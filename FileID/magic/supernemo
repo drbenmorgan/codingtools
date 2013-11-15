@@ -1,0 +1,5 @@
+# supernemo : file(1) magic for supernemo files
+
+# Tracker DAQ file
+0 search/4096 RUNSTART NEMO3 Geiger Tracker DAQ
+!:mime text/x-snemogeiger
