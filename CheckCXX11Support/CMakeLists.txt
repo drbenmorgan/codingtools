@@ -24,4 +24,15 @@ list(INSERT CMAKE_MODULE_PATH 0 ${PROJECT_SOURCE_DIR}/CMake/cmake-cxx11/Modules)
 # - Check Features
 include(CheckCXX11Features)
 
+# - Check C++ Standard Library (NB, not cross compile safe yet! Though
+# if we do cross-compile, then everything should be appropriately provided
+# by the toolchain?).
+try_run(
+  STDLIB_RUN_RESULT
+  STDLIB_COMPILE_RESULT
+  ${PROJECT_BINARY_DIR}/cxx_stdlib
+  ${PROJECT_SOURCE_DIR}/CMake/CheckCXXStandardLibrary/cxx11-test-stdlib.cpp
+  RUN_OUTPUT_VARIABLE STDLIB_OUTPUT
+  )
+message(STATUS "C++ Standard Library : ${STDLIB_OUTPUT}")
 
