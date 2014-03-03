@@ -24,6 +24,29 @@ list(INSERT CMAKE_MODULE_PATH 0 ${PROJECT_SOURCE_DIR}/CMake/cmake-cxx11/Modules)
 # - Check Features
 include(CheckCXX11Features)
 
+#-----------------------------------------------------------------------
+# Checks for headers - propbably need more than this, e.g. checks for
+# function *in* headers (possibly also for TR1 namespace).
+include(CheckIncludeFileCXX)
+
+# <cstdint>
+check_include_file_cxx(cstdint HAS_CXX_CSTDINT)
+
+# <array>
+check_include_file_cxx(array HAS_CXX_ARRAY)
+
+# <random>
+check_include_file_cxx(random HAS_CXX_RANDOM)
+
+# <system_error>
+check_include_file_cxx(system_error HAS_CXX_SYSTEM_ERROR)
+
+# <tuple>
+check_include_file_cxx(tuple HAS_CXX_TUPLE)
+
+# <type_traits>
+check_include_file_cxx(type_traits HAS_CXX_TYPE_TRAITS)
+
 # - Check C++ Standard Library (NB, not cross compile safe yet! Though
 # if we do cross-compile, then everything should be appropriately provided
 # by the toolchain?).
