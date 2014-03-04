@@ -4,6 +4,7 @@
 #
 #  CXX11_COMPILER_FLAGS         - the compiler flags needed to get C++11 features
 #
+#  HAS_CXX11_ARRAY              - array types
 #  HAS_CXX11_AUTO               - auto keyword
 #  HAS_CXX11_AUTO_RET_TYPE      - function declaration with deduced return types
 #  HAS_CXX11_CLASS_OVERRIDE     - override and final keywords for classes and methods
@@ -125,6 +126,7 @@ function(cxx11_check_feature FEATURE_NAME RESULT_VAR)
 endfunction(cxx11_check_feature)
 
 cxx11_check_feature("__func__" HAS_CXX11_FUNC)
+cxx11_check_feature("array" HAS_CXX11_ARRAY)
 cxx11_check_feature("auto" HAS_CXX11_AUTO)
 cxx11_check_feature("auto_ret_type" HAS_CXX11_AUTO_RET_TYPE)
 cxx11_check_feature("class_override_final" HAS_CXX11_CLASS_OVERRIDE)

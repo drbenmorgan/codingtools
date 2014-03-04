@@ -29,9 +29,6 @@ include(CheckCXX11Features)
 # function *in* headers (possibly also for TR1 namespace).
 include(CheckIncludeFileCXX)
 
-# <array>
-check_include_file_cxx(array HAS_CXX_ARRAY)
-
 # <random>
 check_include_file_cxx(random HAS_CXX_RANDOM)
 
