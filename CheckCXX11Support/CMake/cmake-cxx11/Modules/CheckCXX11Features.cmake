@@ -22,6 +22,7 @@
 #  HAS_CXX11_RVALUE_REFERENCES  - rvalue references
 #  HAS_CXX11_SIZEOF_MEMBER      - sizeof() non-static members
 #  HAS_CXX11_STATIC_ASSERT      - static_assert()
+#  HAS_CXX11_SYSTEM_ERROR       - system_error header
 #  HAS_CXX11_TUPLE              - tuple header
 #  HAS_CXX11_VARIADIC_TEMPLATES - variadic templates
 
@@ -147,5 +148,6 @@ cxx11_check_feature("regex" HAS_CXX11_LIB_REGEX)
 cxx11_check_feature("rvalue-references" HAS_CXX11_RVALUE_REFERENCES)
 cxx11_check_feature("sizeof_member" HAS_CXX11_SIZEOF_MEMBER)
 cxx11_check_feature("static_assert" HAS_CXX11_STATIC_ASSERT)
+cxx11_check_feature("system_error" HAS_CXX11_SYSTEM_ERROR)
 cxx11_check_feature("tuple" HAS_CXX11_TUPLE)
 cxx11_check_feature("variadic_templates" HAS_CXX11_VARIADIC_TEMPLATES)

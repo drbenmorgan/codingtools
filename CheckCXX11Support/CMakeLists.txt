@@ -32,9 +32,6 @@ include(CheckIncludeFileCXX)
 # <random>
 check_include_file_cxx(random HAS_CXX_RANDOM)
 
-# <system_error>
-check_include_file_cxx(system_error HAS_CXX_SYSTEM_ERROR)
-
 # <tuple>
 check_include_file_cxx(tuple HAS_CXX_TUPLE)
 
