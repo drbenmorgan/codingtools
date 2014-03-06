@@ -30,6 +30,7 @@
 #  HAS_CXX11_SYSTEM_ERROR       - system_error header
 #  HAS_CXX11_TUPLE              - tuple header
 #  HAS_CXX11_TYPE_TRAITS        - type_traits header
+#  HAS_CXX11_UTILITY_DECLVAL    - utility header provides declval
 #  HAS_CXX11_VARIADIC_TEMPLATES - variadic templates
 
 #=============================================================================
@@ -162,4 +163,5 @@ cxx11_check_feature("string_numeric_conversions" HAS_CXX11_STRING_NUMERIC_CONVER
 cxx11_check_feature("system_error" HAS_CXX11_SYSTEM_ERROR)
 cxx11_check_feature("tuple" HAS_CXX11_TUPLE)
 cxx11_check_feature("type_traits" HAS_CXX11_TYPE_TRAITS)
+cxx11_check_feature("utility_declval" HAS_CXX11_UTILITY_DECLVAL)
 cxx11_check_feature("variadic_templates" HAS_CXX11_VARIADIC_TEMPLATES)

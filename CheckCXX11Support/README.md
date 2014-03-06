@@ -65,7 +65,7 @@ and matched.
 // -> "HAS_CXX11_SYSTEM_ERROR" #undef CPP0X_HAS_SYSTEM_ERROR_HDR
 // -> "HAS_CXX11_TUPLE" #undef CPP0X_HAS_TUPLE_HDR
 // -> "HAS_CXX11_TYPE_TRAITS" #undef CPP0X_HAS_TYPE_TRAITS_HDR
-#undef CPP0X_HAS_UTILITY_DECLVAL
+// -> "HAS_CXX11_UTILITY_DECLVAL" #undef CPP0X_HAS_UTILITY_DECLVAL
 ```
 
 As time goes on, we'll match these against tests we already have and add
