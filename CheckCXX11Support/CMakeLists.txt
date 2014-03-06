@@ -32,9 +32,6 @@ include(CheckIncludeFileCXX)
 # <random>
 check_include_file_cxx(random HAS_CXX_RANDOM)
 
-# <type_traits>
-check_include_file_cxx(type_traits HAS_CXX_TYPE_TRAITS)
-
 # - Check C++ Standard Library (NB, not cross compile safe yet! Though
 # if we do cross-compile, then everything should be appropriately provided
 # by the toolchain?).
