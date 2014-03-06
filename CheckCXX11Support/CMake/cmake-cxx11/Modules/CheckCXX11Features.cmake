@@ -17,6 +17,8 @@
 #  HAS_CXX11_LAMBDA             - lambdas
 #  HAS_CXX11_LIB_REGEX          - regex library
 #  HAS_CXX11_LONG_LONG          - long long signed & unsigned types
+#  HAS_CXX11_MEMORY_SHARED_PTR  - memory header provides shared_ptr
+#  HAS_CXX11_MEMORY_UNIQUE_PTR  - memory header provides unique_ptr
 #  HAS_CXX11_NOEXCEPT           - noexcept specifier
 #  HAS_CXX11_NULLPTR            - nullptr
 #  HAS_CXX11_RANGE_BASED_FOR    - range-based for loops
@@ -144,6 +146,8 @@ cxx11_check_feature("initializer_list" HAS_CXX11_INITIALIZER_LIST)
 cxx11_check_feature("lambda" HAS_CXX11_LAMBDA)
 cxx11_check_feature("lib_regex" HAS_CXX11_LIB_REGEX)
 cxx11_check_feature("long_long" HAS_CXX11_LONG_LONG)
+cxx11_check_feature("memory_shared_ptr" HAS_CXX11_MEMORY_SHARED_PTR)
+cxx11_check_feature("memory_unique_ptr" HAS_CXX11_MEMORY_UNIQUE_PTR)
 cxx11_check_feature("noexcept" HAS_CXX11_NOEXCEPT)
 cxx11_check_feature("nullptr" HAS_CXX11_NULLPTR)
 cxx11_check_feature("range_based_for" HAS_CXX11_RANGE_BASED_FOR)
