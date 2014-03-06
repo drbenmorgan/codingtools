@@ -19,6 +19,7 @@
 #  HAS_CXX11_LONG_LONG          - long long signed & unsigned types
 #  HAS_CXX11_NOEXCEPT           - noexcept specifier
 #  HAS_CXX11_NULLPTR            - nullptr
+#  HAS_CXX11_RANGE_BASED_FOR    - range-based for loops
 #  HAS_CXX11_RVALUE_REFERENCES  - rvalue references
 #  HAS_CXX11_SIZEOF_MEMBER      - sizeof() non-static members
 #  HAS_CXX11_STATIC_ASSERT      - static_assert()
@@ -144,6 +145,7 @@ cxx11_check_feature("lambda" HAS_CXX11_LAMBDA)
 cxx11_check_feature("long_long" HAS_CXX11_LONG_LONG)
 cxx11_check_feature("noexcept" HAS_CXX11_NOEXCEPT)
 cxx11_check_feature("nullptr" HAS_CXX11_NULLPTR)
+cxx11_check_feature("range_based_for" HAS_CXX11_RANGE_BASED_FOR)
 cxx11_check_feature("regex" HAS_CXX11_LIB_REGEX)
 cxx11_check_feature("rvalue-references" HAS_CXX11_RVALUE_REFERENCES)
 cxx11_check_feature("sizeof_member" HAS_CXX11_SIZEOF_MEMBER)
