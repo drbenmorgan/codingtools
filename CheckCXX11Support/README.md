@@ -37,7 +37,8 @@ preprocessor directives indicating support of each feature.
 
 FNAL CPP0X Checks
 =================
-The FNAL `cpp0x` checks many features at compile time, but these are locked
+The FNAL [cpp0x](https://cdcvs.fnal.gov/redmine/projects/cpp0x) package 
+checks many C++11 features at compile time, but these are locked
 to the GCC version detected. We'd like to reproduce the checks here. Some
 will be already present in `cmake-cxx11` but others will be needed.
 
