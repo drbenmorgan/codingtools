@@ -36,3 +36,8 @@ try_run(
   )
 message(STATUS "C++ Standard Library : ${STDLIB_OUTPUT}")
 
+#-----------------------------------------------------------------------
+# Example generation of a header indicating availability of C++11 features
+#
+configure_file(example_header.hpp.in example_header.hpp)
+
