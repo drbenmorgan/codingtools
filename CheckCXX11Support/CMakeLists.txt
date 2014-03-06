@@ -30,7 +30,7 @@ include(CheckCXX11Features)
 try_run(
   STDLIB_RUN_RESULT
   STDLIB_COMPILE_RESULT
-  ${PROJECT_BINARY_DIR}/cxx_stdlib
+  ${PROJECT_BINARY_DIR}/CheckCXXStandardLibrary
   ${PROJECT_SOURCE_DIR}/CMake/CheckCXXStandardLibrary/cxx11-test-stdlib.cpp
   RUN_OUTPUT_VARIABLE STDLIB_OUTPUT
   )
