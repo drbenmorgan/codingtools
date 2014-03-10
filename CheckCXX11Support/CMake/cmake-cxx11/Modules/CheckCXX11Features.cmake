@@ -4,6 +4,16 @@
 #
 #  CXX11_COMPILER_FLAGS         - the compiler flags needed to get C++11 features
 #
+#  HAS_CXX11_ALGORITHM_ALL_OF   - algorithm header provides all_of
+#  HAS_CXX11_ALGORITHM_ANY_OF   - algorithm header provides any_of
+#  HAS_CXX11_ALGORITHM_COPY_N   - algorithm header provides copy_n
+#  HAS_CXX11_ALGORITHM_FIND_IF_NOT - algorithm header provides find_if_not
+#  HAS_CXX11_ALGORITHM_IS_PARTITIONED - algorithm header provides is_partitioned
+#  HAS_CXX11_ALGORITHM_IS_SORTED - algorithm header provides is_sorted
+#  HAS_CXX11_ALGORITHM_MIN_MAX   - algorithm header provides minmax
+#  HAS_CXX11_ALGORITHM_NONE_OF  - algorithm header provides none_of
+#  HAS_CXX11_ALGORITHM_PARTITION_POINT - algorithm header provides partition_point
+#  HAS_CXX11_ALGORITHM_SHUFFLE  - algorithm header provides shuffle
 #  HAS_CXX11_ARRAY              - array header
 #  HAS_CXX11_AUTO               - auto keyword
 #  HAS_CXX11_AUTO_RET_TYPE      - function declaration with deduced return types
@@ -138,6 +148,16 @@ function(cxx11_check_feature FEATURE_NAME RESULT_VAR)
 endfunction(cxx11_check_feature)
 
 cxx11_check_feature("__func__" HAS_CXX11_FUNC)
+cxx11_check_feature("algorithm_all_of" HAS_CXX11_ALGORITHM_ALL_OF)
+cxx11_check_feature("algorithm_any_of" HAS_CXX11_ALGORITHM_ANY_OF)
+cxx11_check_feature("algorithm_copy_n" HAS_CXX11_ALGORITHM_COPY_N)
+cxx11_check_feature("algorithm_find_if_not" HAS_CXX11_ALGORITHM_FIND_IF_NOT)
+cxx11_check_feature("algorithm_is_partitioned" HAS_CXX11_ALGORITHM_IS_PARTITIONED)
+cxx11_check_feature("algorithm_is_sorted" HAS_CXX11_ALGORITHM_IS_SORTED)
+cxx11_check_feature("algorithm_minmax" HAS_CXX11_ALGORITHM_MIN_MAX)
+cxx11_check_feature("algorithm_none_of" HAS_CXX11_ALGORITHM_NONE_OF)
+cxx11_check_feature("algorithm_partition_point" HAS_CXX11_ALGORITHM_PARTITION_POINT)
+cxx11_check_feature("algorithm_shuffle" HAS_CXX11_ALGORITHM_SHUFFLE)
 cxx11_check_feature("array" HAS_CXX11_ARRAY)
 cxx11_check_feature("auto" HAS_CXX11_AUTO)
 cxx11_check_feature("auto_ret_type" HAS_CXX11_AUTO_RET_TYPE)
