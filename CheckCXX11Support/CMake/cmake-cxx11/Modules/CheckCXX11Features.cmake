@@ -18,6 +18,7 @@
 #  HAS_CXX11_AUTO               - auto keyword
 #  HAS_CXX11_AUTO_RET_TYPE      - function declaration with deduced return types
 #  HAS_CXX11_CLASS_OVERRIDE     - override and final keywords for classes and methods
+#  HAS_CXX11_CMATH_FPCLASSIFY   - cmath header provide classify/comparison
 #  HAS_CXX11_CONSTEXPR          - constexpr keyword
 #  HAS_CXX11_CSTDINT_H          - cstdint header
 #  HAS_CXX11_DECLTYPE           - decltype keyword
@@ -162,6 +163,7 @@ cxx11_check_feature("array" HAS_CXX11_ARRAY)
 cxx11_check_feature("auto" HAS_CXX11_AUTO)
 cxx11_check_feature("auto_ret_type" HAS_CXX11_AUTO_RET_TYPE)
 cxx11_check_feature("class_override_final" HAS_CXX11_CLASS_OVERRIDE)
+cxx11_check_feature("cmath_fpclassify" HAS_CXX11_CMATH_FPCLASSIFY)
 cxx11_check_feature("constexpr" HAS_CXX11_CONSTEXPR)
 cxx11_check_feature("cstdint" HAS_CXX11_CSTDINT_H)
 cxx11_check_feature("decltype" HAS_CXX11_DECLTYPE)

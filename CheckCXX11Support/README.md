@@ -15,7 +15,7 @@ perfectly on every combination of compiler and standard library.
 
 How to Use
 ==========
-Simply run `cmake` (2.8.3 or better), pointing it the directory in which 
+Simply run `cmake` (2.8.3 or better), pointing it the directory in which
 this README resides.
 Though an out-of-source build is not enforced, it is strongly recommended that
 you use a separate directory for builds so that multiple compilers/versions
@@ -32,12 +32,12 @@ variables can be found in CMake/cmake-cxx11/Modules/CheckCXX11Features.cmake.
 
 At present, there is nothing to do beyond the CMake step as no programs
 are built! However, an example header template, `example_header.hpp.in` is
-provided that demonstrates the use of the cache variables to set 
+provided that demonstrates the use of the cache variables to set
 preprocessor directives indicating support of each feature.
 
 FNAL CPP0X Checks
 =================
-The FNAL [cpp0x](https://cdcvs.fnal.gov/redmine/projects/cpp0x) package 
+The FNAL [cpp0x](https://cdcvs.fnal.gov/redmine/projects/cpp0x) package
 checks many C++11 features at compile time, but these are locked
 to the GCC version detected. We'd like to reproduce the checks here. Some
 will be already present in `cmake-cxx11` but others will be needed.
@@ -74,7 +74,7 @@ and matched.
 // -> "HAS_CXX11_ALGORITHM_SHUFFLE" #undef CPP0X_HAS_ALGORITHM_SHUFFLE
 // -> "HAS_CXX11_ARRAY" #undef CPP0X_HAS_ARRAY_HDR
 #undef CPP0X_HAS_CMATH_C99
-#undef CPP0X_HAS_CMATH_FPCLASSIFICATION
+// -> "HAS_CXX11_CMATH_FPCLASSIFY" #undef CPP0X_HAS_CMATH_FPCLASSIFICATION
 #undef CPP0X_HAS_CSTDDEF_NULLPTR_T
 // -> "HAS_CXX11_CSTDINT_H" #undef CPP0X_HAS_CSTDINT_HDR
 #undef CPP0X_HAS_FUNCTIONAL_BIND
