@@ -1,14 +1,25 @@
-// - Simple demonstration of creating a support header from 
+// - Simple demonstration of creating a support header from
 // CheckCXX11Features variables. This uses cmakedefine to set preprocessor
 // symbols, but other techniques can be used.
 //
 #ifndef EXAMPLE_HEADER_HPP_HH
 #define EXAMPLE_HEADER_HPP_HH
 
+#cmakedefine HAS_CXX11_ALGORITHM_ALL_OF
+#cmakedefine HAS_CXX11_ALGORITHM_ANY_OF
+#cmakedefine HAS_CXX11_ALGORITHM_COPY_N
+#cmakedefine HAS_CXX11_ALGORITHM_FIND_IF_NOT
+#cmakedefine HAS_CXX11_ALGORITHM_IS_PARTITIONED
+#cmakedefine HAS_CXX11_ALGORITHM_IS_SORTED
+#cmakedefine HAS_CXX11_ALGORITHM_MIN_MAX
+#cmakedefine HAS_CXX11_ALGORITHM_NONE_OF
+#cmakedefine HAS_CXX11_ALGORITHM_PARTITION_POINT
+#cmakedefine HAS_CXX11_ALGORITHM_SHUFFLE
 #cmakedefine HAS_CXX11_ARRAY
 #cmakedefine HAS_CXX11_AUTO
 #cmakedefine HAS_CXX11_AUTO_RET_TYPE
 #cmakedefine HAS_CXX11_CLASS_OVERRIDE
+#cmakedeine  HAS_CXX11_CMATH_FPCLASSIFY
 #cmakedefine HAS_CXX11_CONSTEXPR
 #cmakedefine HAS_CXX11_CSTDINT_H
 #cmakedefine HAS_CXX11_DECLTYPE
