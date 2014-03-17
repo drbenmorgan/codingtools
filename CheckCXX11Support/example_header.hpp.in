@@ -19,6 +19,7 @@
 #cmakedefine HAS_CXX11_AUTO
 #cmakedefine HAS_CXX11_AUTO_RET_TYPE
 #cmakedefine HAS_CXX11_CLASS_OVERRIDE
+#cmakedefine HAS_CXX11_CMATH_C99
 #cmakedeine  HAS_CXX11_CMATH_FPCLASSIFY
 #cmakedefine HAS_CXX11_CONSTEXPR
 #cmakedefine HAS_CXX11_CSTDINT_H
