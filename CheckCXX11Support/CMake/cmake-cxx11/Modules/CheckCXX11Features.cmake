@@ -26,6 +26,11 @@
 #  HAS_CXX11_DECLTYPE           - decltype keyword
 #  HAS_CXX11_DEFAULT_TEMPLATE_ARGUMENTS - default arguments for function templates
 #  HAS_CXX11_FUNC               - __func__ preprocessor constant
+#  HAS_CXX11_FUNCTIONAL_BIND    - functional header provides bind
+#  HAS_CXX11_FUNCTIONAL_FUNCTION - functional header provides function
+#  HAS_CXX11_FUNCTIONAL_HASH    - functional header provides hash
+#  HAS_CXX11_FUNCTIONAL_MEM_FN  - functional header provides mem_fn
+#  HAS_CXX11_FUNCTIONAL_REF     - functional header provides ref/cref
 #  HAS_CXX11_INITIALIZER_LIST   - initializer list
 #  HAS_CXX11_LAMBDA             - lambdas
 #  HAS_CXX11_LIB_REGEX          - regex library
@@ -173,6 +178,11 @@ cxx11_check_feature("cstdint" HAS_CXX11_CSTDINT_H)
 cxx11_check_feature("cstddef_nullptr_t" HAS_CXX11_CSTDDEF_NULLPTR_T)
 cxx11_check_feature("decltype" HAS_CXX11_DECLTYPE)
 cxx11_check_feature("default_template_arguments" HAS_CXX11_DEFAULT_TEMPLATE_ARGUMENTS)
+cxx11_check_feature("functional_bind" HAS_CXX11_FUNCTIONAL_BIND)
+cxx11_check_feature("functional_function" HAS_CXX11_FUNCTIONAL_FUNCTION)
+cxx11_check_feature("functional_hash" HAS_CXX11_FUNCTIONAL_HASH)
+cxx11_check_feature("functional_mem_fn" HAS_CXX11_FUNCTIONAL_MEM_FN)
+cxx11_check_feature("functional_ref" HAS_CXX11_FUNCTIONAL_REF)
 cxx11_check_feature("initializer_list" HAS_CXX11_INITIALIZER_LIST)
 cxx11_check_feature("lambda" HAS_CXX11_LAMBDA)
 cxx11_check_feature("lib_regex" HAS_CXX11_LIB_REGEX)
