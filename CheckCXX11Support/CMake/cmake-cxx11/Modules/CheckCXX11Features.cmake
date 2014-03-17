@@ -35,6 +35,7 @@
 #  HAS_CXX11_NOEXCEPT           - noexcept specifier
 #  HAS_CXX11_NULLPTR            - nullptr
 #  HAS_CXX11_NUMERIC_IOTA       - numeric header provides iota
+#  HAS_CXX11_RANDOM             - random header
 #  HAS_CXX11_RANGE_BASED_FOR    - range-based for loops
 #  HAS_CXX11_RVALUE_REFERENCES  - rvalue references
 #  HAS_CXX11_SIZEOF_MEMBER      - sizeof() non-static members
@@ -181,6 +182,7 @@ cxx11_check_feature("memory_unique_ptr" HAS_CXX11_MEMORY_UNIQUE_PTR)
 cxx11_check_feature("noexcept" HAS_CXX11_NOEXCEPT)
 cxx11_check_feature("nullptr" HAS_CXX11_NULLPTR)
 cxx11_check_feature("numeric_iota" HAS_CXX11_NUMERIC_IOTA)
+cxx11_check_feature("random" HAS_CXX11_RANDOM)
 cxx11_check_feature("range_based_for" HAS_CXX11_RANGE_BASED_FOR)
 cxx11_check_feature("rvalue-references" HAS_CXX11_RVALUE_REFERENCES)
 cxx11_check_feature("sizeof_member" HAS_CXX11_SIZEOF_MEMBER)
