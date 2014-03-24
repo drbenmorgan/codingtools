@@ -25,6 +25,7 @@
 #  HAS_CXX11_CSTDDEF_NULLPTR_T  - cstddef header provides nullptr_t
 #  HAS_CXX11_DECLTYPE           - decltype keyword
 #  HAS_CXX11_DEFAULT_TEMPLATE_ARGUMENTS - default arguments for function templates
+#  HAS_CXX11_EXPLICIT_CONVERSION_OPERATORS - conversion operators can be explicit
 #  HAS_CXX11_FUNC               - __func__ preprocessor constant
 #  HAS_CXX11_FUNCTIONAL_BIND    - functional header provides bind
 #  HAS_CXX11_FUNCTIONAL_FUNCTION - functional header provides function
@@ -178,6 +179,7 @@ cxx11_check_feature("cstdint" HAS_CXX11_CSTDINT_H)
 cxx11_check_feature("cstddef_nullptr_t" HAS_CXX11_CSTDDEF_NULLPTR_T)
 cxx11_check_feature("decltype" HAS_CXX11_DECLTYPE)
 cxx11_check_feature("default_template_arguments" HAS_CXX11_DEFAULT_TEMPLATE_ARGUMENTS)
+cxx11_check_feature("explicit_conversion_operators" HAS_CXX11_EXPLICIT_CONVERSION_OPERATORS)
 cxx11_check_feature("functional_bind" HAS_CXX11_FUNCTIONAL_BIND)
 cxx11_check_feature("functional_function" HAS_CXX11_FUNCTIONAL_FUNCTION)
 cxx11_check_feature("functional_hash" HAS_CXX11_FUNCTIONAL_HASH)
