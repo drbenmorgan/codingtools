@@ -13,3 +13,9 @@ CheckCXX11Support
 -----------------
 Test methods of using CMake to check which C++11 features the configured
 compiler supports.
+
+CMakeOutputs
+------------
+Demonstrate use of custom output directories for build products in CMake,
+taking into account both single (Make) and multiconfig (Xcode) generators.
+
