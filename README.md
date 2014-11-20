@@ -19,3 +19,6 @@ CMakeOutputs
 Demonstrate use of custom output directories for build products in CMake,
 taking into account both single (Make) and multiconfig (Xcode) generators.
 
+CXX11Examples
+-------------
+Some simple examples of using C++11 and beyond.
