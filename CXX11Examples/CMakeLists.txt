@@ -25,7 +25,7 @@ if(NOT HAS_CXX11)
 endif()
 
 # Set default flags
-set(CXX11EXAMPLES_DEFAULT_CXX_FLAGS "-W -Wall -Wextra -Wshadow -pedantic")
+set(CXX11EXAMPLES_DEFAULT_CXX_FLAGS "-W -Wall -Wextra -Wshadow -pedantic -std=c++11")
 
 option(CXX11EXAMPLES_USE_EFFCXX "Build with Effective C++ warnings" ON)
 if(CXX11EXAMPLES_USE_EFFCXX)
@@ -40,13 +40,13 @@ set(CMAKE_CXX_FLAGS "${CXX11EXAMPLES_DEFAULT_CXX_FLAGS} ${CMAKE_CXX_FLAGS}")
 include(CheckCXXSymbolExists)
 check_cxx_symbol_exists(getopt "unistd.h" HAVE_GETOPT)
 if(HAVE_GETOPT)
-  add_definitions(HAVE_GETOPT)
+  add_definitions(-DHAVE_GETOPT)
 endif()
 
 #-----------------------------------------------------------------------
 # Find any needed third party packages
 #
-find_package(Boost 1.56.0 REQUIRED unit_test_framework)
+#find_package(Boost 1.56.0 REQUIRED unit_test_framework)
 
 
 #-----------------------------------------------------------------------
@@ -128,3 +128,5 @@ endforeach()
 # - Executable
 add_executable(test_cxx11 test_cxx11.cpp)
 add_executable(example01 example01.cpp)
+
+add_executable(test_unique_ptr test_unique_ptr.cpp)
