@@ -22,3 +22,8 @@ taking into account both single (Make) and multiconfig (Xcode) generators.
 CXX11Examples
 -------------
 Some simple examples of using C++11 and beyond.
+
+CMakeComponentBuild
+-------------------
+Study building of projects from sets of small components, using object
+libs and a component/module interface.
