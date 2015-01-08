@@ -1,8 +1,10 @@
 //  - baz does bar
 // Basic idea is to improve and ease use of I/O, introducing control
-// structures along the way. Potential to also demo comman line args
+// structures along the way. Potential to also demo command line args
 // either via getopt or Boost program_options (latter to be balanced
 // against complexity and need to find/link).
+//
+//
 // Copyright (c) 2014 by Ben Morgan <bmorgan.warwick@gmail.com>
 // Copyright (c) 2014 by The University of Warwick
 
@@ -22,10 +24,15 @@ int main(int argc, char *argv[])
     std::cout << "argv[" << i << "] = '" << argv[i] << "'" << std::endl;
   }
 
+  std::vector<std::string> argVector(argv, argv+argc);
+  for (auto& s : argVector) {
+    std::cout << "argVector : " << s << std::endl;
+  }
 
-
+  // If there's no input file, we use cin,
+  // If there's no output file we use cout
   // This allows reading from keyboard or redirection.
-  // From Keyboard, use Ctrl-D to end?
+  // From Keyboard, use Ctrl-D to end
   // See http://stackoverflow.com/questions/7232297/redirecting-input-using-stdin
   std::copy(std::istream_iterator<char>(std::cin),
             std::istream_iterator<char>(),
