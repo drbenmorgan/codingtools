@@ -27,3 +27,9 @@ CMakeComponentBuild
 -------------------
 Study building of projects from sets of small components, using object
 libs and a component/module interface.
+
+CMakeUsageReqs
+--------------
+Use of CMake's new target INTERFACE properties (2.8.11 and higher), plus
+compiler features (3.1 and higher).
+
