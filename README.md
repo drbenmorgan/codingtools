@@ -33,3 +33,7 @@ CMakeUsageReqs
 Use of CMake's new target INTERFACE properties (2.8.11 and higher), plus
 compiler features (3.1 and higher).
 
+NetworkX
+--------
+Explore NetworkX Python module for working with graphs
+
