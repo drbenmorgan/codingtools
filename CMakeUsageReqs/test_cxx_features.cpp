@@ -1,6 +1,6 @@
 #include <iostream>
 
-int main(int argc, const char *argv[])
+int test_cxx_features(int argc, const char *argv[])
 {
   auto i = 1;
 
