@@ -37,3 +37,10 @@ NetworkX
 --------
 Explore NetworkX Python module for working with graphs
 
+Networking
+----------
+Simple networking tasks with Standard Library and other APIs.
+
+SystemMetadata
+--------------
+How to get a program to introspect itself and the system for metadata.
