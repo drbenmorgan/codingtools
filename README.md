@@ -33,3 +33,18 @@ CMakeUsageReqs
 Use of CMake's new target INTERFACE properties (2.8.11 and higher), plus
 compiler features (3.1 and higher).
 
+NetworkX
+--------
+Explore NetworkX Python module for working with graphs
+
+Networking
+----------
+Simple networking tasks with Standard Library and other APIs.
+
+SystemMetadata
+--------------
+How to get a program to introspect itself and the system for metadata.
+
+ROOT6
+-----
+Try out Root6 with special emphasis on I/O and reflection

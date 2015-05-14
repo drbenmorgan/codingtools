@@ -21,6 +21,12 @@ Definitions
 - A product is composed of 1-N components
 - A product has dependencies only via those declared by its components
 - A component may not know which product it ends up in
+- A component can only be a member of one product
+- A component or product may be optional, but final DAG of dependencies
+  must be closed.
+- Optional components must be activated even if the user deactivates them
+  if required by another active component.
+
 
 Requirements
 ------------

@@ -11,6 +11,7 @@
 #include <iostream>
 #include <algorithm>
 #include <iterator>
+#include <vector>
 
 #if defined(HAVE_GETOPT)
 #include "unistd.h"
