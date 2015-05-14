@@ -4,7 +4,7 @@
 
 # Don't want vendor extensions
 set(CMAKE_CXX_EXTENSIONS OFF)
-
+message(STATUS "CMAKEoption: ${CMAKE_CXX11_STANDARD_COMPILE_OPTION}")
 # - Note that CMAKE_CXX_KNOWN_FEATURES lists those features that CMake
 # knows about, which may not correspond to those supported by the
 # compiler in use.
