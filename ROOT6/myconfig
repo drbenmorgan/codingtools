@@ -1,0 +1,26 @@
+# - INTERPRETER CONFIG
+# : Files
+Rint.History: $(HOME)/.myinterp_hist
+# "Load/Alias" file contains, usually, utility functions and the like
+#Rint.Load: myinterputils.C
+
+# "Startup" file, located via macro path
+# Note that TRint will always load the system and HOME .rootlogon.C files
+# before it loads this one
+Rint.Logon: myinterplogon.C
+
+# "Shutdown" file, located via macro path. Only the file specified
+# here is run
+Rint.Logoff: myinterplogoff.C
+
+# Quiet welcome
+Rint.WelcomeLite: yes
+
+# : Look n'Feel
+# iPython-esq
+Rint.PromptColor: "bold green"
+
+
+# Macro/Loader paths specific for this app
+#Unix.*.Root.MacroPath: $(HOME):.
+#
