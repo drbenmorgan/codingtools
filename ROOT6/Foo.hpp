@@ -10,7 +10,7 @@ class foo {
  public:
   // Root serialization seems not to like =default constructors(?)
   foo() {}
-  ~foo() {}
+  virtual ~foo() {}
 
   void doWork() const;
   void setValue(int v);
