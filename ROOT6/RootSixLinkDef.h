@@ -4,7 +4,7 @@
 #pragma link C++ nestedclass;
 #pragma link C++ nestedtypedef;
 
-#pragma link C++ function hello;
-#pragma link C++ class foo;
+#pragma link C++ function rootsix::hello;
+#pragma link C++ class rootsix::foo;
 
 #endif
