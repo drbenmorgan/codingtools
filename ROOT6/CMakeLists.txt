@@ -34,6 +34,21 @@ target_link_libraries(RootSixTests ${ROOT_LIBRARIES})
 # - Store class in branch of TTree
 # - Schema evolution with ClassDef (and/or TClass::GetCheckSum?)
 
+# - Create dictionaries for external types?
+find_package(Boost 1.58.0 REQUIRED)
+include_directories(${Boost_INCLUDE_DIRS})
+
+root_generate_dictionary(DICT_ExternalTypes
+  ${Boost_INCLUDE_DIRS}/boost/variant/variant.hpp
+  MODULE ExternalTypes
+  LINKDEF ${PROJECT_SOURCE_DIR}/ExternalTypesLinkDef.h
+  )
+add_library(ExternalTypes SHARED DICT_ExternalTypes.cxx)
+target_link_libraries(ExternalTypes ${ROOT_LIBRARIES})
+
+
+
+
 #-----------------------------------------------------------------------
 # A simple re-interpreter
 # - Generate binreloc header/source with mangled names, ensuring first
