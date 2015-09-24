@@ -9,14 +9,45 @@ include_directories(${PROJECT_BINARY_DIR})
 find_package(ROOT 6.2.0 REQUIRED Core Rint)
 #include(${ROOT_USE_FILE}) <- This uses add_definitions with C++ specific
 # flags, thereby messing up compiliation of mixed C/C++ sources
+include(RootNewMacros)
 include_directories(${ROOT_INCLUDE_DIRS})
 set(CMAKE_CXX_FLAGS "${ROOT_CXX_FLAGS}")
+
 
 #-----------------------------------------------------------------------
 # Stuff to do:
 # - Create simple class, dictionary and rlibmap file
+# Note that due to limitations of Root6/Cling, need to load the library
+# *and* include headers..., i.e. as per root manual:
+#
+# R__LOAD_LIBRARY(libNAME)
+# #include "headerforiface.h"
+root_generate_dictionary(DICT_RootSixTests
+  ${PROJECT_SOURCE_DIR}/Foo.hpp
+  MODULE RootSixTests
+  LINKDEF ${PROJECT_SOURCE_DIR}/RootSixLinkDef.h
+  )
+add_library(RootSixTests SHARED DICT_RootSixTests.cxx Foo.hpp Foo.cpp)
+target_link_libraries(RootSixTests ${ROOT_LIBRARIES})
+
+
 # - Store class in branch of TTree
 # - Schema evolution with ClassDef (and/or TClass::GetCheckSum?)
+
+# - Create dictionaries for external types?
+find_package(Boost 1.58.0 REQUIRED)
+include_directories(${Boost_INCLUDE_DIRS})
+
+root_generate_dictionary(DICT_ExternalTypes
+  ${Boost_INCLUDE_DIRS}/boost/variant/variant.hpp
+  MODULE ExternalTypes
+  LINKDEF ${PROJECT_SOURCE_DIR}/ExternalTypesLinkDef.h
+  )
+add_library(ExternalTypes SHARED DICT_ExternalTypes.cxx)
+target_link_libraries(ExternalTypes ${ROOT_LIBRARIES})
+
+
+
 
 #-----------------------------------------------------------------------
 # A simple re-interpreter
