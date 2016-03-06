@@ -48,3 +48,7 @@ How to get a program to introspect itself and the system for metadata.
 ROOT6
 -----
 Try out Root6 with special emphasis on I/O and reflection
+
+Reflection
+----------
+Alternate reflection with Ponder
