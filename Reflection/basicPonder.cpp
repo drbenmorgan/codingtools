@@ -24,6 +24,8 @@ void use()
     // Make John say something
     john.call("speak");
 
+    john.call("foo");
+
     // Kill John
     metaclass.destroy(john);
 }
