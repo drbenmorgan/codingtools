@@ -5,7 +5,7 @@
 #include "ponder/pondertype.hpp"
 #include "ponder/classvisitor.hpp"
 
-#include "Person.hpp"
+#include "PersonPonder.hpp"
 
 void use()
 {
@@ -87,7 +87,8 @@ int main() {
   std::cout << "Before declare called:\n";
   listClasses();
 
-  declare();
+  // If ponder defs are in a dynamic lib, must load them before use
+  libPerson::loadPonder();
 
   std::cout << "After declare called:\n";
   listClasses();

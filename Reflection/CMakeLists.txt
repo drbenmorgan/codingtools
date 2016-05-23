@@ -7,7 +7,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 find_package(Ponder REQUIRED)
 
 include_directories(${PONDER_INCLUDE_DIR})
-add_library(Person SHARED Person.hpp Person.cpp)
+add_library(Person SHARED Person.hpp Person.cpp ponderPerson.cpp)
 target_link_libraries(Person ponder::ponder)
 
 add_executable(basicPonder basicPonder.cpp)
