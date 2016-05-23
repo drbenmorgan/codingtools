@@ -24,7 +24,8 @@ void use()
     // Make John say something
     john.call("speak");
 
-    john.call("foo");
+    // If you try and call an unknown function, an exception is thrown
+    //john.call("foo");
 
     // Kill John
     metaclass.destroy(john);
@@ -74,8 +75,23 @@ void visit() {
 
 }
 
+/// print all classes known to ponder
+void listClasses() {
+  for (size_t i {0}; i < ponder::classCount(); ++i) {
+    std::cout << "class " << i << ", " << ponder::classByIndex(i).name() << "\n";
+  }
+}
+
 int main() {
+  // What does ponder know about?
+  std::cout << "Before declare called:\n";
+  listClasses();
+
   declare();
+
+  std::cout << "After declare called:\n";
+  listClasses();
+
   use();
   query();
   visit();
