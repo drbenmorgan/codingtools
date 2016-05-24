@@ -5,6 +5,8 @@
 #include "ponder/pondertype.hpp"
 #include "ponder/classvisitor.hpp"
 
+#include "MyObserver.hpp"
+
 #include "PersonPonder.hpp"
 
 void use()
@@ -83,6 +85,9 @@ void listClasses() {
 }
 
 int main() {
+  // Register observer
+  ponder::addObserver(new MyObserver);
+
   // What does ponder know about?
   std::cout << "Before declare called:\n";
   listClasses();
