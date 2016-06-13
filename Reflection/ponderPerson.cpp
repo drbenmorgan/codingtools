@@ -5,9 +5,7 @@
 #include "ponder/classbuilder.hpp"
 #include "ponder/class.hpp"
 #include "ponder/pondertype.hpp"
-
-namespace libPerson {
-void loadPonder() {
+extern "C" void loadPonder() {
   // should only be called once, but safe to call further
   // We just need to explicitly instantiate.
   // Not clear if this can be partitioned out into a separate translation unit
@@ -15,9 +13,6 @@ void loadPonder() {
   // function to ensure instantiation...
   ponder::classByType<Person>();
 }
-
-} // namespace Person
-
 
 void declare_person() // register details (once)
 {

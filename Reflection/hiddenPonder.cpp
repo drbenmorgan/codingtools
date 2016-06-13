@@ -7,7 +7,6 @@
 
 #include "MyObserver.hpp"
 
-#include "Person.hpp"
 #include <dlfcn.h>
 
 void use()
@@ -92,9 +91,6 @@ int main() {
   // What does ponder know about?
   std::cout << "Before declare called:\n";
   listClasses();
-
-  // Can use Person directly
-  Person bob {"bob"};
 
   // Now load Person's reflection layer
   typedef void (*PonderLoadFunction)();

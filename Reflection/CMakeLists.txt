@@ -7,16 +7,22 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 find_package(Ponder REQUIRED)
 
 include_directories(${PONDER_INCLUDE_DIR})
-add_library(Person SHARED Person.hpp Person.cpp ponderPerson.cpp)
-target_link_libraries(Person ponder::ponder)
 
+# Library for the core type(s)
+add_library(Person SHARED Person.hpp Person.cpp)
+
+# Library for the reflection symbols for the core type(s)
+add_library(Person_ponder SHARED ponderPerson.cpp)
+target_link_libraries(Person_ponder Person ponder::ponder)
+
+# Program that just uses the core type, loads the library
 add_executable(basicPonder basicPonder.cpp)
-target_link_libraries(basicPonder Person)
+target_link_libraries(basicPonder Person ponder::ponder)
 
-# The oddity of Bayeux using boost::serialization's singleton. Appears to be used to
-# guarantee calling of ponder registration code, so is that born out?
-# - Create a library
-add_library(Hidden SHARED Hidden.hpp Hidden.cpp)
-add_library(Plugin SHARED Plugin.cpp)
-add_executable(HiddenUser HiddenUser.cpp)
-target_link_libraries(HiddenUser Hidden)
+# Program that only loads the reflection layer
+add_executable(hiddenPonder hiddenPonder.cpp)
+target_link_libraries(hiddenPonder ponder::ponder)
+
+# AutoStaticInit to show the other way of loading
+add_subdirectory(AutoStaticInit)
+
