@@ -15,6 +15,10 @@ add_library(Person SHARED Person.hpp Person.cpp)
 add_library(Person_ponder SHARED ponderPerson.cpp)
 target_link_libraries(Person_ponder Person ponder::ponder)
 
+# Library for the reflection symbols for the Config type
+add_library(Config_ponder SHARED ponderConfig.cpp)
+target_link_libraries(Config_ponder ponder::ponder)
+
 # Program that just uses the core type, loads the library
 add_executable(basicPonder basicPonder.cpp)
 target_link_libraries(basicPonder Person ponder::ponder)
