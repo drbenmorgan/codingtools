@@ -1,0 +1,4 @@
+message Config {
+  optional string input_data_label = 1;
+  optional string output_data_label = 2;
+}
