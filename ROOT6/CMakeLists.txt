@@ -9,7 +9,7 @@ include_directories(${PROJECT_BINARY_DIR})
 find_package(ROOT 6.2.0 REQUIRED Core Rint)
 #include(${ROOT_USE_FILE}) <- This uses add_definitions with C++ specific
 # flags, thereby messing up compiliation of mixed C/C++ sources
-include(RootNewMacros)
+include(${ROOT_DIR}/modules/RootNewMacros.cmake)
 include_directories(${ROOT_INCLUDE_DIRS})
 set(CMAKE_CXX_FLAGS "${ROOT_CXX_FLAGS}")
 
@@ -33,19 +33,45 @@ target_link_libraries(RootSixTests ${ROOT_LIBRARIES})
 
 # - Store class in branch of TTree
 # - Schema evolution with ClassDef (and/or TClass::GetCheckSum?)
+# Create dictionaries for external types?
+# - In general, have issues due to deeply nested template types
+#   that we can't (easily) fully define (Boost), or non-default
+#   constructible objects (Poco)
+#find_package(Boost 1.58.0 REQUIRED)
+#include_directories(${Boost_INCLUDE_DIRS})
+#find_package(Poco 1.6 REQUIRED Foundation)
 
-# - Create dictionaries for external types?
-find_package(Boost 1.58.0 REQUIRED)
-include_directories(${Boost_INCLUDE_DIRS})
+#root_generate_dictionary(DICT_ExternalTypes
+#  ${PROJECT_SOURCE_DIR}/ExternalTypes.h
+#  MODULE ExternalTypes
+#  LINKDEF ${PROJECT_SOURCE_DIR}/ExternalTypesLinkDef.h
+#  )
+#add_library(ExternalTypes SHARED DICT_ExternalTypes.cxx)
+#target_link_libraries(ExternalTypes ${ROOT_LIBRARIES} Poco::Foundation)
 
-root_generate_dictionary(DICT_ExternalTypes
-  ${Boost_INCLUDE_DIRS}/boost/variant/variant.hpp
-  MODULE ExternalTypes
-  LINKDEF ${PROJECT_SOURCE_DIR}/ExternalTypesLinkDef.h
+#-----------------------------------------------------------------------
+# Create simple variant like class but with custom streamer to output
+# extra info - the type index and the value itself.
+root_generate_dictionary(DICT_Simple
+  ${PROJECT_SOURCE_DIR}/Simple.hpp
+  ${PROJECT_SOURCE_DIR}/TypeWrapper.h
+  ${PROJECT_SOURCE_DIR}/Properties.h
+  MODULE Simple
+  LINKDEF ${PROJECT_SOURCE_DIR}/SimpleLinkDef.h
   )
-add_library(ExternalTypes SHARED DICT_ExternalTypes.cxx)
-target_link_libraries(ExternalTypes ${ROOT_LIBRARIES})
+# NB: For ROOT plugins to work, need to have .so ext
+add_library(Simple SHARED DICT_Simple.cxx Simple.hpp Simple.cxx)
+set_target_properties(Simple PROPERTIES SUFFIX ".so")
 
+target_link_libraries(Simple ${ROOT_LIBRARIES})
+add_executable(SimpleRW SimpleRW.cxx)
+target_link_libraries(SimpleRW Simple)
+
+
+#-----------------------------------------------------------------------
+# Dynamic tests
+add_executable(testDynamic testDynamic.cpp)
+set_property(TARGET testDynamic PROPERTY CXX_STANDARD 14)
 
 
 
