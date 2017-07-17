@@ -51,3 +51,22 @@ Key(?) Things:
   - Python makes this easy, less so in C++
 - Basically, refer to how Python logging is configured!!
   - https://docs.python.org/2/library/logging.config.html
+
+C++ Logging Packages
+--------------------
+- spdlog: https://github.com/gabime/spdlog
+- Poco : https://pocoproject.org/slides/110-Logging.pdf
+- log4cxx : https://logging.apache.org/log4cxx/latest_stable/
+- Boost.Log : 
+
+Backward/Forward Compatibility
+------------------------------
+
+Need to keep in mind the basic end-user interface:
+
+- Get a logger : `getLogger("name") : LogObject&`
+- Log a message : myLogger.info("log message");
+- Log a message : myLogger.info() << "log message";
+- Log a message : LOG_INFO(myLogger, "log something" << )
+
+

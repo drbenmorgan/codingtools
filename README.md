@@ -52,3 +52,9 @@ Try out Root6 with special emphasis on I/O and reflection
 Reflection
 ----------
 Alternate reflection with Ponder
+
+Logging
+-------
+Experiment with simple Python-like interface to logging, allowing for
+swappable backends like spdlod, Poco, Boost, MessageFacility.
+
