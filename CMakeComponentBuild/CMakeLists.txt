@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.12)
+cmake_minimum_required(VERSION 3.3)
 project(CMakeComponentBuild)
 
 include(CMakeParseArguments)
@@ -84,3 +84,14 @@ ccb_add_component(baz)
 
 ccb_display_property(COMPONENTS)
 
+#-----------------------------------------------------------------------
+# CMake's OBJECT libs may provide a good model for building components
+# if they are to go into an overall library.
+# Can we create object libs and compose them?
+include(foo/sources.cmake)
+
+add_library(foobar $<TARGET_OBJECTS:foo-object>)
+
+# group sources?
+get_target_property(foosrcs foo-object SOURCES)
+source_group(foobar\\foo FILES ${foosrcs})
