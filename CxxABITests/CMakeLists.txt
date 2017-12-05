@@ -10,5 +10,7 @@ add_library(minicanvas SHARED minicanvas.h minicanvas.cc demangle.h demangle.cc)
 #   Needs testing on other platforms, plus libc++ with different ABI...
 target_link_libraries(minicanvas PRIVATE c++abi)
 
-
+# Tests
+add_executable(smoketest smoketest.cc)
+target_link_libraries(smoketest minicanvas)
 

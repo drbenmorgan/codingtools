@@ -24,7 +24,7 @@ namespace __cxxabiv1 {
     // Type information for a class
     class __class_type_info : public std::type_info {
     public:
-      explicit __class_type_info(char const* n); // : type_info(n) {}
+      explicit __class_type_info(char const* n) : type_info(n) {}
       ~__class_type_info() override;
     };
 
@@ -33,10 +33,10 @@ namespace __cxxabiv1 {
     public:
       __class_type_info const* __base_type;
       explicit __si_class_type_info(char const* n,
-                                    __class_type_info const* base);
-      //  : __class_type_info(n), __base_type(base)
-      //{
-      //}
+                                    __class_type_info const* base)
+        : __class_type_info(n), __base_type(base)
+      {
+      }
       ~__si_class_type_info() override;
     };
 
@@ -66,10 +66,10 @@ namespace __cxxabiv1 {
         __diamond_shaped_mask = 0x2,
         __flags_unknown_mask = 0x10
       };
-      explicit __vmi_class_type_info(char const* n, int flags);
-     //   : __class_type_info(n), __flags(flags), __base_count(0)
-      //{
-      //}
+      explicit __vmi_class_type_info(char const* n, int flags)
+        : __class_type_info(n), __flags(flags), __base_count(0)
+      {
+      }
       ~__vmi_class_type_info() override;
     };
 }
@@ -237,4 +237,34 @@ detail::maybeCastObj(void const* ptr,
     throw std::runtime_error(msg.str());
   }
   return static_cast<char const*>(ptr) + res.offset;
+}
+
+void
+detail::printParents(std::type_info const& ti)
+{
+  std::cout << "[printParents]: typename = " << cet::demangle_symbol(ti.name()) << "\n";
+
+  if (auto ci = dynamic_cast<abi::__class_type_info const*>(&ti)) {
+    std::cout << " - Is a class\n";
+  } else {
+    std::cout << " - Not a class\n";
+  }
+
+  if (auto si = dynamic_cast<abi::__si_class_type_info const*>(&ti)) {
+    std::cout << " - Has Single inheritance\n";
+  }
+
+  if (auto vmi = dynamic_cast<abi::__vmi_class_type_info const*>(&ti)) {
+    std::cout << " - Has Complex inheritance\n";
+    for (size_t i = 0; i < vmi->__base_count; i++) {
+      std::cout << " - [offset:" << i << "] \n";
+    }
+  }
+
+     // printf("%s [offset %d]\n",
+
+//ArchGetDemangled(*vmiTi->__base_info[i].__base_type).c_str(),
+  //                  (vmiTi->__base_info[i].__offset_flags) >>
+    //                abi::__base_class_type_info::__offset_shift);
+
 }

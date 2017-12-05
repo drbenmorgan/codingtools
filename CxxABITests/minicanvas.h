@@ -13,6 +13,8 @@ namespace art {
     void const* maybeCastObj(void const* address,
                              std::type_info const& tiFrom,
                              std::type_info const& tiTo);
+
+    void printParents(std::type_info const& ti);
   }
 }
 
@@ -24,6 +26,8 @@ art::detail::maybeCastObj(element_type const* address,
   static std::type_info const& tiFrom{typeid(element_type)};
   return maybeCastObj(address, tiFrom, tiTo);
 }
+
+
 
 #endif /* canvas_Persistency_Common_detail_maybeCastObj_h */
 
