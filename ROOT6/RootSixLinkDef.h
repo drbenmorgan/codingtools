@@ -6,5 +6,6 @@
 
 #pragma link C++ function rootsix::hello;
 #pragma link C++ class rootsix::foo;
+#pragma link C++ struct MyConfig;
 
 #endif

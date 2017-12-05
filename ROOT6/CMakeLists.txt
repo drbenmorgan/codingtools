@@ -24,10 +24,11 @@ set(CMAKE_CXX_FLAGS "${ROOT_CXX_FLAGS}")
 # #include "headerforiface.h"
 root_generate_dictionary(DICT_RootSixTests
   ${PROJECT_SOURCE_DIR}/Foo.hpp
+  ${PROJECT_SOURCE_DIR}/MyConfig.hpp
   MODULE RootSixTests
   LINKDEF ${PROJECT_SOURCE_DIR}/RootSixLinkDef.h
   )
-add_library(RootSixTests SHARED DICT_RootSixTests.cxx Foo.hpp Foo.cpp)
+add_library(RootSixTests SHARED DICT_RootSixTests.cxx Foo.hpp Foo.cpp MyConfig.hpp)
 target_link_libraries(RootSixTests ${ROOT_LIBRARIES})
 
 
