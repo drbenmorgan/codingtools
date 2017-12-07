@@ -14,7 +14,7 @@ namespace art {
                              std::type_info const& tiFrom,
                              std::type_info const& tiTo);
 
-    void printParents(std::type_info const& ti);
+    void printParents(std::type_info const& ti, size_t level=0);
   }
 }
 

@@ -24,20 +24,14 @@ namespace __cxxabiv1 {
     // Type information for a class
     class __class_type_info : public std::type_info {
     public:
-      explicit __class_type_info(char const* n) : type_info(n) {}
-      ~__class_type_info() override;
+      virtual ~__class_type_info();
     };
 
     // Type information for a class with a single non-virtual base
     class __si_class_type_info : public __class_type_info {
     public:
       __class_type_info const* __base_type;
-      explicit __si_class_type_info(char const* n,
-                                    __class_type_info const* base)
-        : __class_type_info(n), __base_type(base)
-      {
-      }
-      ~__si_class_type_info() override;
+      virtual ~__si_class_type_info();
     };
 
     // Helper class for __vmi_class_type.
@@ -66,15 +60,13 @@ namespace __cxxabiv1 {
         __diamond_shaped_mask = 0x2,
         __flags_unknown_mask = 0x10
       };
-      explicit __vmi_class_type_info(char const* n, int flags)
-        : __class_type_info(n), __flags(flags), __base_count(0)
-      {
-      }
-      ~__vmi_class_type_info() override;
+      virtual ~__vmi_class_type_info();
     };
 }
-
+// This is the actual libcxxabi declarations, if we need them
+//#include "private_typeinfo.h"
 #endif
+
 
 using namespace art;
 using namespace std;
@@ -240,24 +232,32 @@ detail::maybeCastObj(void const* ptr,
 }
 
 void
-detail::printParents(std::type_info const& ti)
+detail::printParents(std::type_info const& ti, size_t level)
 {
-  std::cout << "[printParents]: typename = " << cet::demangle_symbol(ti.name()) << "\n";
+  std::string indent(level, ' ');
+  std::cout << indent << "[printParents]: typename = " << cet::demangle_symbol(ti.name()) << "\n";
 
   if (auto ci = dynamic_cast<abi::__class_type_info const*>(&ti)) {
-    std::cout << " - Is a class\n";
+    std::cout << indent << " - (" << ci << ") Is a class\n";
   } else {
-    std::cout << " - Not a class\n";
+    std::cout << indent << " - Not a class\n";
   }
 
   if (auto si = dynamic_cast<abi::__si_class_type_info const*>(&ti)) {
-    std::cout << " - Has Single inheritance\n";
+    std::cout << indent << " - (" << si << ") Has Single inheritance chain\n";
+    std::cout << indent << "  - next = " << cet::demangle_symbol(si->__base_type->name()) << "\n";
+    printParents(*(si->__base_type), ++level);
   }
 
   if (auto vmi = dynamic_cast<abi::__vmi_class_type_info const*>(&ti)) {
-    std::cout << " - Has Complex inheritance\n";
+    std::cout << indent << " - (" << vmi << ") Has Complex inheritance\n";
     for (size_t i = 0; i < vmi->__base_count; i++) {
-      std::cout << " - [offset:" << i << "] \n";
+      std::cout << indent << " - [offset:"
+                << ((vmi->__base_info[i].__offset_flags) >> abi::__base_class_type_info::__offset_shift)
+                << ", "
+                << cet::demangle_symbol((vmi->__base_info[i].__base_type)->name())
+                << "]\n";
+      printParents(*(vmi->__base_info[i].__base_type), ++level);
     }
   }
 
