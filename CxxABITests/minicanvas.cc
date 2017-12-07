@@ -57,8 +57,7 @@ namespace __cxxabiv1 {
       __base_class_type_info __base_info[1];
       enum __flags_masks {
         __non_diamond_repeat_mask = 0x1,
-        __diamond_shaped_mask = 0x2,
-        __flags_unknown_mask = 0x10
+        __diamond_shaped_mask = 0x2
       };
       virtual ~__vmi_class_type_info();
     };
@@ -252,19 +251,18 @@ detail::printParents(std::type_info const& ti, size_t level)
   if (auto vmi = dynamic_cast<abi::__vmi_class_type_info const*>(&ti)) {
     std::cout << indent << " - (" << vmi << ") Has Complex inheritance\n";
     for (size_t i = 0; i < vmi->__base_count; i++) {
+      auto const& base = vmi->__base_info[i];
+
       std::cout << indent << " - [offset:"
-                << ((vmi->__base_info[i].__offset_flags) >> abi::__base_class_type_info::__offset_shift)
+                << ((base.__offset_flags) >> abi::__base_class_type_info::__offset_shift)
                 << ", "
-                << cet::demangle_symbol((vmi->__base_info[i].__base_type)->name())
+                << (base.__offset_flags & abi::__base_class_type_info::__public_mask ? "public" : "private")
+                << ", "
+                << (base.__offset_flags & abi::__base_class_type_info::__virtual_mask ? "virtual" : "non-virtual")
+                << ", "
+                << cet::demangle_symbol((base.__base_type)->name())
                 << "]\n";
-      printParents(*(vmi->__base_info[i].__base_type), ++level);
+      printParents(*(base.__base_type), ++level);
     }
   }
-
-     // printf("%s [offset %d]\n",
-
-//ArchGetDemangled(*vmiTi->__base_info[i].__base_type).c_str(),
-  //                  (vmiTi->__base_info[i].__offset_flags) >>
-    //                abi::__base_class_type_info::__offset_shift);
-
 }
